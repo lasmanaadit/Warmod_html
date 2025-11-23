@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="registerlogin.css">
+</head>
+<body>
+  <!-- Tombol back -->
+  <a href="login.html" class="back-btn"><span class="arrow">‹</span> Back</a>
+
+  <div class="container">
+    <h2>Create an Account</h2>
+    <p>Sudah punya akun? <a href="login.html">Login Disini</a></p>
+
+    <form class="form" id="registerForm">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" placeholder="Masukkan nama lengkap anda" required>
+
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="Masukkan email anda" required>
+
+      <label for="password">Password</label>
+      <div class="password-field">
+        <input type="password" id="password" placeholder="Masukkan password" required>
+        <span id="togglePasswordReg" class="toggle">Hide</span>
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </div>
+
+  <!-- Popup sukses -->
+  <div id="popup" class="popup">Register berhasil! Anda akan diarahkan ke halaman login</div>
+
+  <script src="loginregister.js"></script>
+</body>
+</html>

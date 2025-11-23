@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARMOD - Premium Game Addons</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-gamepad"></i> WARMOD
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#" class="home-link"><i class="fas fa-home"></i> HOME</a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="auth-links">
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>WARMOD - Premium Game Addons</h1>
+            <p>Dapatkan addon terbaik untuk game kesayangan Anda dengan harga terjangkau dan kualitas premium.</p>
+            <div class="hero-actions">
+                <a href="login.html" class="cta-button primary">Login untuk Belanja</a>
+                <a href="#products" class="cta-button secondary">Lihat Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h2 class="section-title">Addons Terpopuler</h2>
+        
+        <!-- Kategori Filter -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="ETS2">ETS2</button>
+            <button class="filter-btn" data-category="BUSSID">BUSSID</button>
+            <button class="filter-btn" data-category="TRAINZ">TRAINZ</button>
+        </div>
+        
+        <div class="products-grid" id="products">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="ETS2">
+                <div class="product-image">
+                    <img src="ets2_20240328_230125_00.png" alt="UD Quester 1.56">
+                    <div class="category-label">ETS2</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">UD Quester 1.56</h3>
+                    <div class="product-price">Rp.100.000</div>
+                    <div class="product-stats">
+                        <div class="stat"><i class="fas fa-download"></i> 192 Unduhan</div>
+                    </div>
+                    <div class="buy-button" onclick="showLoginRequired()">LOGIN UNTUK MEMBELI</div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card" data-category="BUSSID">
+                <div class="product-image">
+                    <img src="ets2_20240816_171954_00.png" alt="EP3 Edit Jetbus 3 Pack">
+                    <div class="category-label">BUSSID</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">EP3 Edit Jetbus 3 Pack</h3>
+                    <div class="product-price">Rp.100.000</div>
+                    <div class="product-stats">
+                        <div class="stat"><i class="fas fa-download"></i> 156 Unduhan</div>
+                    </div>
+                    <div class="buy-button" onclick="showLoginRequired()">LOGIN UNTUK MEMBELI</div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card" data-category="BUSSID">
+                <div class="product-image">
+                    <img src="cc206..jpg" alt="CC 206 ADD-ONS">
+                    <div class="category-label">BUSSID</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">CC 206 ADD-ONS</h3>
+                    <div class="product-price">Rp.100.000</div>
+                    <div class="product-stats">
+                        <div class="stat"><i class="fas fa-download"></i> 122 Unduhan</div>
+                    </div>
+                    <div class="buy-button" onclick="showLoginRequired()">LOGIN UNTUK MEMBELI</div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card" data-category="ETS2">
+                <div class="product-image">
+                    <img src="Trailer ets2.png" alt="ETS2 Trailer Pack">
+                    <div class="category-label">ETS2</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">ETS2 Trailer Pack</h3>
+                    <div class="product-price">Rp.90.000</div>
+                    <div class="product-stats">
+                        <div class="stat"><i class="fas fa-download"></i> 98 Unduhan</div>
+                    </div>
+                    <div class="buy-button" onclick="showLoginRequired()">LOGIN UNTUK MEMBELI</div>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card" data-category="TRAINZ">
+                <div class="product-image">
+                    <img src="locopack.jpg" alt="Trainz Locomotive Pack">
+                    <div class="category-label">TRAINZ</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Trainz Locomotive Pack</h3>
+                    <div class="product-price">Rp.120.000</div>
+                    <div class="product-stats">
+                        <div class="stat"><i class="fas fa-download"></i> 75 Unduhan</div>
+                    </div>
+                    <div class="buy-button" onclick="showLoginRequired()">LOGIN UNTUK MEMBELI</div>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card" data-category="TRAINZ">
+                <div class="product-image">
+                    <img src="pse.jpg" alt="Objek Stasiun Pasarsenen">
+                    <div class="category-label">TRAINZ</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Objek Stasiun Pasarsenen</h3>
+                    <div class="product-price">Rp.85.000</div>
+                    <div class="product-stats">
+                        <div class="stat"><i class="fas fa-download"></i> 63 Unduhan</div>
+                    </div>
+                    <div class="buy-button" onclick="showLoginRequired()">LOGIN UNTUK MEMBELI</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="login.html" class="cta-button">LIHAT SEMUA PRODUK</a>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih WARMOD?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Aman & Terpercaya</h3>
+                    <p>Transaksi aman dengan sistem pembayaran terpercaya</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Delivery</h3>
+                    <p>Mod dikirim langsung ke email setelah pembayaran</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support 24/7</h3>
+                    <p>Tim support siap membantu kapan saja</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Update Gratis</h3>
+                    <p>Dapatkan update mod secara gratis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login CTA Section -->
+    <section class="login-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Upgrade Your Gaming Experience?</h2>
+                <p>Login sekarang dan dapatkan akses ke ratusan mod premium</p>
+                <div class="cta-actions">
+                    <a href="login.html" class="cta-button large">Login Sekarang</a>
+                    <a href="register.html" class="cta-button secondary large">Daftar Akun Baru</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email: support@warmod.com</a></li>
+                        <li><a href="#">WhatsApp: +62 812-3456-7890</a></li>
+                        <li><a href="#">Telegram: @warmod_support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Syarat & Ketentuan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat Layanan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Pertanyaan Umum</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Cara Install Addon</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>WARMOD</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 WARMOD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Required Popup -->
+    <div class="popup-overlay" id="login-required-popup" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2><strong>Login Diperlukan</strong></h2>
+                <button class="popup-close" onclick="closeLoginRequired()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="popup-body">
+                <p>Anda perlu login untuk dapat membeli produk. Silakan login atau daftar akun baru.</p>
+            </div>
+            <div class="popup-actions">
+                <button class="popup-btn confirm-btn" onclick="goToLogin()">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login Sekarang
+                </button>
+                <button class="popup-btn cancel-btn" onclick="closeLoginRequired()">
+                    <i class="fas fa-times"></i>
+                    Nanti Saja
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function untuk show login required popup
+        function showLoginRequired() {
+            document.getElementById('login-required-popup').style.display = 'flex';
+        }
+
+        function closeLoginRequired() {
+            document.getElementById('login-required-popup').style.display = 'none';
+        }
+
+        function goToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        // Disable cart functionality untuk user belum login
+        function addToCartFromCard() {
+            showLoginRequired();
+            return false;
+        }
+
+        function goToCheckout() {
+            showLoginRequired();
+            return false;
+        }
+
+        // Load cart data - disable untuk user belum login
+        function loadCartData() {
+            // Kosongkan cart count
+            const cartCountElements = document.querySelectorAll('.cart-count');
+            cartCountElements.forEach(element => {
+                element.textContent = '0';
+                element.style.display = 'none';
+            });
+        }
+
+        // Pastikan cart data di-load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof loadCartData === 'function') {
+                loadCartData();
+            }
+        });
+    </script>
+</body>
+</html>

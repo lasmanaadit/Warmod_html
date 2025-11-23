@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permintaan Verifikasi</title>
+    <link rel="stylesheet" href="permintaan_verifikasi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+    <div class="profile">
+      <div class="avatar">A</div>
+      <div class="info">
+        <h4>Admin</h4>
+        <p>admin@gmail.com</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="dashboard_admin.html">Dashboard</a>
+      <a class="active" href="verifikasi.html">Permintaan Verifikasi</a>
+      <a href="kelola_user.html">Kelola User Toko</a>
+      <a href="riwayat_transaksi.html">Riwayat Transaksi</a>
+    </nav>
+
+    <div class="logout"><a href="admin_login.html">Logout</a></div>
+  </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <h1>Permintaan Verifikasi</h1>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Pembayaran</th>
+                        <th>Tujuan</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Valent Alif</td>
+                        <td>EP3 JETBUS 3</td>
+                        <td>https://drive.google...</td>
+                        <td class="actions">
+                            <button class="approve-btn">Approve</button>
+                            <button class="decline-btn">Decline</button>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Nanda Andika</td>
+                        <td>CC 206 AIO</td>
+                        <td>https://drive.google...</td>
+                        <td class="actions">
+                            <button class="approve-btn">Approve</button>
+                            <button class="decline-btn">Decline</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Ghopur</td>
+                        <td>WHEELSPACK</td>
+                        <td>https://drive.google...</td>
+                        <td class="actions">
+                            <button class="approve-btn">Approve</button>
+                            <button class="decline-btn">Decline</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Reza Fahlevi</td>
+                        <td>INNOVA ZENIX</td>
+                        <td>https://drive.google...</td>
+                        <td class="actions">
+                            <button class="approve-btn">Approve</button>
+                            <button class="decline-btn">Decline</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </main>
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // === APPROVE ===
+    document.querySelectorAll(".approve-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const row = this.closest("tr");
+
+            if (confirm("Yakin ingin APPROVE permintaan ini?")) {
+                // setelah confirm, tombol approve & decline hilang
+                row.querySelector(".actions").innerHTML = 
+                    "<span style='color: #1a7f3c; font-weight:600;'>Approved ✓</span>";
+            }
+        });
+    });
+
+    // === DECLINE ===
+    document.querySelectorAll(".decline-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const row = this.closest("tr");
+
+            if (confirm("Tolak permintaan ini?")) {
+                row.querySelector(".actions").innerHTML = 
+                    "<span style='color: #b30000; font-weight:600;'>Declined ✗</span>";
+            }
+        });
+    });
+
+});
+</script>
+
+</body>
+</html>

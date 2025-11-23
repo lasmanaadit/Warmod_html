@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelola User Toko</title>
+  <link rel="stylesheet" href="kelola_user.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+
+  <aside class="sidebar">
+    <div class="profile">
+      <div class="avatar">A</div>
+      <div class="info">
+        <h4>Admin</h4>
+        <p>admin@gmail.com</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="dashboard_admin.html">Dashboard</a>
+      <a href="permintaan_verifikasi.html">Permintaan Verifikasi</a>
+      <a class="active" href="kelola_user.html">Kelola User Toko</a>
+      <a href="riwayat_transaksi.html">Riwayat Transaksi</a>
+    </nav>
+
+    <div class="logout"><a href="admin_login.html">Logout</a></div>
+  </aside>
+
+  <main class="main">
+
+    <h1>Kelola User Toko</h1>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Toko</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Valent Alif</td>
+            <td>YELLOW FLASH STUDIO</td>
+            <td><span class="status-active">Active</span></td>
+            <td class="actions">
+                <button class="suspend-btn">Suspend</button>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+</div>
+<script>
+document.querySelectorAll(".suspend-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+
+        // Jika sudah suspended, tidak bisa diklik lagi
+        if (btn.classList.contains("suspended")) return;
+
+        // Pop-up konfirmasi
+        const confirmSuspend = confirm("Yakin ingin men-suspend user ini?");
+        if (!confirmSuspend) return;
+
+        // Ubah tampilan tombol → Suspended
+        btn.textContent = "Suspended";
+        btn.classList.add("suspended");
+    });
+});
+</script>
+
+</body>
+</html>

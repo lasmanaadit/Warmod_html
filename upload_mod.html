@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Mods</title>
+  <link rel="stylesheet" href="upload_mod.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <div class="icon">✔</div>
+    <h3>Mod Sukses Di Upload</h3>
+    <p>Tunggu persetujuan dari Admin</p>
+    <button id="btnOke">Oke</button>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ambil data dari localStorage
+const namaToko = localStorage.getItem("namaToko");
+const emailToko = localStorage.getItem("emailToko");
+const fotoToko = localStorage.getItem("fotoToko");
+
+// Update nama
+const namaElem = document.querySelector(".info h4");
+if (namaElem && namaToko) {
+  namaElem.textContent = namaToko;
+}
+
+// Update email
+const emailElem = document.querySelector(".info p");
+if (emailElem && emailToko) {
+  emailElem.textContent = emailToko;
+}
+
+// Update foto profil
+const avatarImg = document.querySelector(".avatar-img");
+if (avatarImg) {
+  avatarImg.src = fotoToko || "default_pp.png"; // bisa diganti defaultnya
+}
+
+});
+</script>
+
+<script>
+const popup = document.getElementById("popup");
+const closePopup = document.getElementById("closePopup");
+const uploadBtn = document.querySelector(".btn-upload");
+
+// buka popup saat tombol upload diklik
+uploadBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  popup.classList.add("show");
+});
+
+// tutup popup saat klik Oke
+closePopup.addEventListener("click", () => {
+  popup.classList.remove("show");
+  // arahkan balik ke dashboard (opsional)
+  window.location.href = "dashboard_toko.html";
+});
+</script>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar">
+  <img class="avatar-img" src="" alt="Foto Profil">
+</div>
+
+        <div class="info">
+          <h4>Nama Toko</h4>
+          <p>toko@gmail.com</p>
+        </div>
+      </div>
+      <nav>
+        <a href="dashboard_toko.html"><i></i> Dashboard</a>
+        <a href="upload_mod.html" class="active"><i></i> Upload Mod</a>
+        <a href="profil_toko.html"><i></i> Profil Toko</a>
+      </nav>
+      <div class="logout">
+        <a href="#"><i></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h1>Upload Mods</h1>
+
+      <form class="upload-form">
+        <label>Nama Mods</label>
+        <input type="text" placeholder="Masukkan nama mod">
+
+        <label>Tautan File</label>
+        <input type="text" placeholder="Masukkan link file (Google Drive, Mediafire, dll)">
+
+        <label>Deskripsi</label>
+        <textarea rows="5" placeholder="Tuliskan deskripsi mod kamu..."></textarea>
+
+        <div class="upload-group">
+          <div class="file-row">
+            <span>Upload Gambar 1</span>
+            <input type="file">
+          </div>
+
+        <div class="kategori">
+          <label>Kategori Game</label>
+          <div class="kategori-btns">
+            <button type="button" class="active">ETS2</button>
+            <button type="button">Bussid</button>
+            <button type="button">Trainz</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-upload">Upload</button>
+      </form>
+    </main>
+  </div>
+  <script>
+document.querySelector(".btn-upload").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const nama = document.querySelector("input[placeholder='Masukkan nama mod']").value;
+    const link = document.querySelector("input[placeholder='Masukkan link file (Google Drive, Mediafire, dll)']").value;
+    const deskripsi = document.querySelector("textarea").value;
+
+    // Ambil gambar pertama saja (bisa ditambah nanti)
+    const fileInput = document.querySelector(".file-row input[type='file']");
+    let gambar = "";
+
+    if (fileInput.files.length > 0) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            gambar = ev.target.result;
+            simpanMod();
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        simpanMod();
+    }
+
+    function simpanMod() {
+        let list = JSON.parse(localStorage.getItem("mods")) || [];
+
+        list.push({
+            nama: nama,
+            deskripsi: deskripsi,
+            link: link,
+            gambar: gambar
+        });
+
+        localStorage.setItem("mods", JSON.stringify(list));
+
+        // tampilkan popup
+        document.getElementById("popup").classList.add("show");
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // tombol OK
+  const btnOke = document.getElementById("btnOke");
+  const popup = document.getElementById("popup");
+
+  btnOke.addEventListener("click", () => {
+    popup.style.display = "none"; // popup hilang
+  });
+
+});
+</script>
+
+</body>
+</html>

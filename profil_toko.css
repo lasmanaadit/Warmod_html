@@ -1,0 +1,273 @@
+/* === Dasar dari CSS-mu === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #111;
+  font-size: 13px;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
+.avatar {
+  background: #ffb74d;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.info p {
+  font-size: 11px;
+  color: #777;
+}
+
+.sidebar nav {
+  margin-top: 10px;
+}
+
+.sidebar nav a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 25px 0;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  color: #7b3fe4;
+  font-weight: 600;
+}
+
+.logout {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #d33;
+  font-weight: 500;
+  font-size: 12.5px;
+}
+
+/* === MAIN AREA === */
+.main {
+  flex: 1;
+  padding: 25px;
+}
+
+.main h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* === PROFILE CONTENT === */
+.profile-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Foto profil */
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-photo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-btn {
+  background: #7b3fe4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: #6933c7;
+}
+
+/* Form */
+.profile-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-form label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444;
+}
+
+.profile-form input,
+.profile-form textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.profile-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main {
+    padding: 15px;
+  }
+}
+
+.save-btn {
+  background: #7b3fe4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+  width: fit-content;
+  transition: background 0.2s ease;
+}
+
+.save-btn:hover {
+  background: #6933c7;
+}
+
+.profile-form input[readonly],
+.profile-form textarea[readonly] {
+  background: #f8f8f8;
+  color: #555;
+}
+
+/* === FOTO PROFIL UPLOAD === */
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border: 3px solid transparent;
+}
+
+.profile-photo img:hover {
+  opacity: 0.8;
+  border: 3px solid #7b3fe4;
+}
+
+.profile-photo label {
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-photo label::after {
+  content: "📷";
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  background: #7b3fe4;
+  color: white;
+  font-size: 10px;
+  padding: 3px 5px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.profile-photo label:hover::after {
+  opacity: 1;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

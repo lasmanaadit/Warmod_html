@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #111;
+  font-size: 13px;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #ffb74d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+.info h4 {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.info p {
+  font-size: 11px;
+  color: gray;
+}
+
+.sidebar nav a {
+  display: block;
+  text-decoration: none;
+  color: #444;
+  padding: 14px 0;
+  font-size: 13px;
+}
+
+.sidebar nav a.active {
+  color: #7b3fe4;
+  font-weight: 600;
+}
+
+.sidebar nav a:hover {
+  color: #7b3fe4;
+}
+
+.logout {
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.logout a {
+  color: #d33;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+.main h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.card h4 {
+  color: gray;
+  font-size: 13px;
+}
+
+.card .value {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* TABLE */
+/* Table Wrapper */
+.table-box {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Table width fix */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* penting supaya kolom sejajar */
+}
+
+/* Header */
+thead {
+  background: #f3f3f7;
+}
+
+th {
+  padding: 14px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
+}
+
+/* Body */
+td {
+  padding: 16px 12px;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Biar kolom ke tengah (secara visual) */
+td:nth-child(1),
+th:nth-child(1) {
+  width: 60px; /* No */
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+  width: 180px; /* Nama */
+}
+
+td:nth-child(3),
+th:nth-child(3) {
+  width: 150px; /* Nominal */
+}
+
+td:nth-child(4),
+th:nth-child(4) {
+  width: 200px; /* Rekening */
+}
+
+td:nth-child(5),
+th:nth-child(5) {
+  width: 160px; /* Action */
+}
+
+/* Biar row lebih enak dibaca */
+tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Tombol Action */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.actions .approve-btn {
+  background: #d9ffe8;
+  color: #15803d;
+}
+
+.actions .decline-btn {
+  background: #ffe1e1;
+  color: #b91c1c;
+}
+

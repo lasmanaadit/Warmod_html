@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Toko</title>
+  <link rel="stylesheet" href="profil_toko.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar">
+  <img class="avatar-img" src="" alt="Foto Profil">
+</div>
+
+        <div class="info">
+          <h4>Nama Toko</h4>
+          <p>toko@gmail.com</p>
+        </div>
+      </div>
+      <nav>
+        <a href="dashboard_toko.html"><i></i> Dashboard</a>
+        <a href="upload_mod.html"><i></i> Upload Mod</a>
+        <a href="profil_toko.html" class="active"><i></i> Profil Toko</a>
+      </nav>
+      <div class="logout">
+        <a href="#"><i></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h1>Profil Toko</h1>
+
+      <div class="profile-container">
+        <div class="profile-photo">
+          <label for="uploadFoto">
+            <img id="fotoProfil" src="https://via.placeholder.com/120" alt="Foto Profil" title="Klik untuk ganti foto" />
+          </label>
+          <input type="file" id="uploadFoto" accept="image/*" style="display:none;" />
+          <button class="edit-btn" id="editBtn">Edit</button>
+        </div>
+
+        <div class="profile-form">
+          <label>Nama Pemilik</label>
+          <input type="text" id="namaPemilik" readonly />
+
+          <label>Nama Toko</label>
+          <input type="text" id="namaToko" readonly />
+
+          <label>Deskripsi</label>
+          <textarea id="deskripsi" readonly></textarea>
+
+          <label>Email</label>
+          <input type="email" id="email" readonly />
+
+          <button class="save-btn" id="saveBtn" style="display:none;">Simpan Perubahan</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // === Ambil data dari localStorage ===
+    document.getElementById("namaPemilik").value = localStorage.getItem("namaPemilik") || "Lasmanaadit";
+    document.getElementById("namaToko").value = localStorage.getItem("namaToko") || "Nama Toko";
+    document.getElementById("email").value = localStorage.getItem("email") || "lasmanaadit@gmail.com";
+    document.getElementById("deskripsi").value = localStorage.getItem("deskripsi") || "Deskripsi toko...";
+    document.querySelector(".info h4").textContent = localStorage.getItem("namaToko") || "Nama Toko";
+    document.querySelector(".info p").textContent = localStorage.getItem("email") || "toko@gmail.com";
+
+    // === Load foto profil kalau ada ===
+    const fotoProfil = document.getElementById("fotoProfil");
+    const fotoTersimpan = localStorage.getItem("fotoProfil");
+    if (fotoTersimpan) fotoProfil.src = fotoTersimpan;
+
+    // === Upload Foto Profil ===
+    document.getElementById("uploadFoto").addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          fotoProfil.src = reader.result;
+          localStorage.setItem("fotoProfil", reader.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // === Tombol Edit ===
+    const editBtn = document.getElementById("editBtn");
+    const saveBtn = document.getElementById("saveBtn");
+    const inputs = document.querySelectorAll("input:not([type=file]), textarea");
+
+    editBtn.addEventListener("click", () => {
+      inputs.forEach(el => el.removeAttribute("readonly"));
+      saveBtn.style.display = "inline-block";
+      editBtn.style.display = "none";
+    });
+
+    // === Simpan Perubahan ===
+    saveBtn.addEventListener("click", () => {
+      localStorage.setItem("namaPemilik", document.getElementById("namaPemilik").value);
+      localStorage.setItem("namaToko", document.getElementById("namaToko").value);
+      localStorage.setItem("email", document.getElementById("email").value);
+      localStorage.setItem("deskripsi", document.getElementById("deskripsi").value);
+
+      inputs.forEach(el => el.setAttribute("readonly", true));
+      saveBtn.style.display = "none";
+      editBtn.style.display = "inline-block";
+
+      document.querySelector(".info h4").textContent = document.getElementById("namaToko").value;
+      document.querySelector(".info p").textContent = document.getElementById("email").value;
+
+      alert("✅ Profil berhasil disimpan!");
+    });
+  });
+  </script>
+  <script>
+  const nameInput = document.getElementById("name");
+  const profilePic = document.getElementById("profile-pic");
+  const saveBtn = document.querySelector(".save-btn");
+
+  // Saat halaman dimuat, ambil data dari localStorage
+  window.onload = () => {
+    const savedName = localStorage.getItem("userName");
+    const savedPic = localStorage.getItem("userPic");
+    if (savedName) nameInput.value = savedName;
+    if (savedPic) profilePic.src = savedPic;
+  };
+
+  // Saat user simpan perubahan
+  saveBtn.addEventListener("click", () => {
+    localStorage.setItem("userName", nameInput.value);
+
+    const fileInput = document.getElementById("profile-upload");
+    const file = fileInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        localStorage.setItem("userPic", reader.result);
+        alert("Profil berhasil diperbarui!");
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert("Profil berhasil diperbarui!");
+    }
+  });
+</script>
+
+</body>
+</html>

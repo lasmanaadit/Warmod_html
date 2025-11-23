@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP3 Edit Jetbus 3 Pack - WARMOD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="cart.js"></script>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-gamepad"></i> WARMOD
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html" class="home-link"><i class="fas fa-home"></i> HOME</a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="auth-links">
+                <a href="checkout.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="profile.html"><i class="fas fa-user"></i> Lasmanaadit</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Product Detail Section -->
+<section class="product-detail">
+    <div class="container">
+        <div class="product-detail-content">
+            <!-- Product Images - Kiri -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="ets2_20240816_171954_00.png" alt="EP3 Edit Jetbus 3 Pack" id="main-product-image">
+                </div>
+                <div class="image-thumbnails">
+                    <div class="thumbnail active" data-image="ets2_20240816_171954_00.png">
+                        <img src="ets2_20240816_171954_00.png" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail" data-image="ets2_20240816_171521_00.png">
+                        <img src="ets2_20240816_171521_00.png" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail" data-image="ets2_20240816_171854_00.png">
+                        <img src="ets2_20240816_171854_00.png" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail" data-image="ets2_20240815_211333_00.png">
+                        <img src="ets2_20240815_211333_00.png" alt="Thumbnail 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info - Kanan -->
+            <div class="product-info-detail">
+                <div class="product-category">BUSSID</div>
+                <h1 class="product-title-detail">EP3 Edit Jetbus 3 Pack</h1>
+                <div class="product-price-detail">Rp.100.000</div>
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="rating-text">Yellow Flash</span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="buy-now-btn" onclick="buyNow()">
+                        <i class="fas fa-bolt"></i> Beli Sekarang
+                    </button>
+                    <button class="add-to-cart-btn" onclick="addToCartFromDetail()">
+                        <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                    </button>
+                </div>
+
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-download"></i>
+                        <span>156 Unduhan</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Update: 1 minggu lalu</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garansi 30 hari</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Description - Bawah -->
+        <div class="product-description">
+            <h2>DESKRIPSI:</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum mi a tellus viverra
+                aliquam. Curabitur suscipit sed ligula sed vestibulum. In hac habitasse platea dictumst. Cras
+                feugiat nulla dolor, at malesuada est omare vel. Cras mattis porta tempus. In vitae metus id
+                diam eleifend tincidunt. Praesent elementum in mauris ac ultricies. Aliquam erat volutpat.
+            </p>
+            <p>
+                Etiam consectetur leo ac elit egestas dictum. Etiam lacus nisl, dapibus non laoreet at, vehicula
+                eget mi. Quisque egestas ex non maximus commodo. Mauris ut varius tellus. Proin auctor a
+                diam vel pharetra. Maecenas blandit ultricies ultricies. Donec porttitor feugiat elit ut convallis.
+                Aliquam arcu neque, vestibulum eget aliquet non, luctus sed neque. Sed lobortis malesuada
+                pretium. Praesent vel dapibus lacus, a sagittis nibh.
+            </p>
+
+            <div class="features">
+                <h3>Fitur Utama:</h3>
+                <ul>
+                    <li>Texture high resolution</li>
+                    <li>Compatible dengan semua versi BUSSID</li>
+                    <li>Easy installation</li>
+                    <li>Support update gratis</li>
+                    <li>Dokumentasi lengkap</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email: support@warmod.com</a></li>
+                        <li><a href="#">WhatsApp: +62 812-3456-7890</a></li>
+                        <li><a href="#">Telegram: @warmod_support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Syarat & Ketentuan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat Layanan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Pertanyaan Umum</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Cara Install Addon</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>WARMOD</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 WARMOD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+<script>
+    // Pastikan fungsi buyNow tersedia di global scope
+    function buyNow() {
+        // Data produk dari halaman detail
+        const productData = {
+            title: 'EP3 Edit Jetbus 3 Pack',
+            category: 'BUSSID', 
+            seller: 'Yellow Flash',
+            price: 100000,
+            image: 'ets2_20240816_171954_00.png'
+        };
+        
+        // Clear cart dulu
+        localStorage.removeItem('warmodCartItems');
+        localStorage.setItem('warmodCartCount', '0');
+        
+        // Tambahkan item ini ke cart
+        if (typeof addToCart === 'function') {
+            addToCart(productData);
+        }
+        
+        // Redirect ke checkout page
+        setTimeout(() => {
+            window.location.href = 'checkout.html';
+        }, 500);
+    }
+    </script>
+<script>
+    // Alternative simple approach
+    function changeMainImage(imageName) {
+        console.log('Attempting to change image to:', imageName);
+        
+        const mainImage = document.getElementById('main-product-image');
+        
+        // Coba berbagai path
+        const possiblePaths = [
+            imageName,
+            './' + imageName,
+            'images/' + imageName,
+            '../' + imageName
+        ];
+        
+        // Coba load gambar
+        const testImage = new Image();
+        
+        testImage.onload = function() {
+            console.log('Image loaded successfully:', imageName);
+            mainImage.src = imageName;
+            updateActiveThumbnails(imageName);
+        };
+        
+        testImage.onerror = function() {
+            console.error('Failed to load image:', imageName);
+            // Coba path alternatif
+            tryAlternativePaths(imageName, 0);
+        };
+        
+        testImage.src = imageName;
+    }
+    
+    function tryAlternativePaths(imageName, index) {
+        const paths = [
+            './' + imageName,
+            'images/' + imageName, 
+            '../' + imageName,
+            '/images/' + imageName
+        ];
+        
+        if (index < paths.length) {
+            const testImage = new Image();
+            testImage.onload = function() {
+                console.log('Image loaded from alternative path:', paths[index]);
+                document.getElementById('main-product-image').src = paths[index];
+                updateActiveThumbnails(imageName);
+            };
+            testImage.onerror = function() {
+                tryAlternativePaths(imageName, index + 1);
+            };
+            testImage.src = paths[index];
+        } else {
+            console.error('All image paths failed for:', imageName);
+        }
+    }
+    
+    function updateActiveThumbnails(activeImage) {
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumb => {
+            const thumbImage = thumb.getAttribute('data-image');
+            if (thumbImage === activeImage) {
+                thumb.classList.add('active');
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                const imageName = this.getAttribute('data-image');
+                changeMainImage(imageName);
+            });
+        });
+    });
+    </script>
+    <script>
+        // Function khusus untuk product detail
+        function addToCartFromDetail() {
+            console.log('addToCartFromDetail called'); // Debug line
+            const productData = {
+                title: 'EP3 Edit Jetbus 3 Pack',
+                category: 'BUSSID',
+                seller: 'Yellow Flash', 
+                price: 100000,
+                image: 'ets2_20240816_171954_00.png'
+            };
+    console.log('Product data:', productData); // Debug line
+    console.log('addToCart function available:', typeof addToCart); // Debug line
+            
+            // Panggil fungsi addToCart dari cart.js
+            if (typeof addToCart === 'function') {
+                addToCart(productData);
+                console.log('addToCart executed'); // Debug line
+            } else {
+                console.error('addToCart function not found!'); // Debug line
+                // Fallback manual
+                let cartItems = JSON.parse(localStorage.getItem('warmodCartItems') || '[]');
+                cartItems.push(productData);
+                localStorage.setItem('warmodCartItems', JSON.stringify(cartItems));
+        
+                const cartCount = cartItems.length;
+                localStorage.setItem('warmodCartCount', cartCount.toString());
+        
+                // Update UI manually
+                document.querySelectorAll('.cart-count').forEach(element => {
+                    element.textContent = cartCount;
+                    element.style.display = cartCount > 0 ? 'flex' : 'none';
+                });
+        
+                alert('Produk berhasil ditambahkan ke keranjang!');
+                }
+        }
+    </script>
+    <script>
+        // Pastikan cart data di-load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof loadCartData === 'function') {
+                loadCartData();
+            }
+        });
+    </script>
+</html>

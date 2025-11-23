@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  position: relative;
+}
+
+.container {
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+/* 🔹 Tombol Back bergaya elegan */
+.back-btn {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: #444;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-btn .arrow {
+  font-size: 20px;
+  line-height: 0;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* -------------------- */
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+p a {
+  color: #000;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field .toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+  font-size: 13px;
+}
+
+.forgot {
+  display: inline-block;
+  font-size: 13px;
+  color: #000;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #e64a19;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.terms a {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* 🔹 Teks Login di bawah tombol */
+.login-below {
+  font-size: 14px;
+  color: #777;
+  margin-top: 20px;
+}
+
+.login-below a {
+  color: #000;
+  font-weight: 500;
+  text-decoration: underline;
+}
+/* Popup sukses */
+.popup {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff5722;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  .popup.show {
+    opacity: 1;
+    visibility: visible;
+    top: 60px;
+  }
+  

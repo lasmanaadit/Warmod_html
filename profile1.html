@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - WARMOD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-gamepad"></i> WARMOD
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="home-link"><i class="fas fa-home"></i> HOME</a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="auth-links">
+                    <a href="checkout.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Lasmanaadit</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="container">
+            <div class="profile-content">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <!-- HAPUS BAGIAN FOTO PROFIL -->
+                        <h2 class="profile-name" id="profile-name">Lasmanaadit</h2>
+                        <p class="profile-email" id="profile-email">lasmanaadit@example.com</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-description">Jelajahi dan beli mod game terbaik untuk pengalaman gaming yang lebih seru!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-menu">
+                        <a href="#" class="menu-item active">
+                            <i class="fas fa-user"></i>
+                            <span>Profile Saya</span>
+                        </a>
+                        <a href="#" class="menu-item" onclick="showStorePopup()">
+                            <i class="fas fa-store"></i>
+                            <span>Toko Saya</span>
+                        </a>
+                        <a href="payment.html" class="menu-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Transaksi Berlangsung</span>
+                        </a>
+                        <!-- Tambahkan tombol logout di sini -->
+                        <a href="#" class="menu-item logout-item" onclick="showLogoutConfirmation()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Main Content -->
+                <div class="profile-main">
+                    <div class="profile-header">
+                        <h1>Profile Saya</h1>
+                        <p>Kelola informasi profile Anda</p>
+                    </div>
+
+                    <div class="profile-form">
+                        <div class="form-section">
+                            <h3>Informasi Pribadi</h3>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <div class="input-with-edit">
+                                    <input type="text" id="username" value="Lasmanaadit" readonly>
+                                    <button class="edit-btn" onclick="enableEdit('username')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-with-edit">
+                                    <input type="email" id="email" value="lasmanaadit@example.com" readonly>
+                                    <button class="edit-btn" onclick="enableEdit('email')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="save-btn" onclick="saveProfile()" style="display: none;" id="save-btn">
+                                <i class="fas fa-save"></i>
+                                Simpan Perubahan
+                            </button>
+                            <button class="cancel-btn" onclick="cancelEdit()" style="display: none;" id="cancel-btn">
+                                <i class="fas fa-times"></i>
+                                Batal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Popup -->
+    <div class="popup-overlay" id="store-popup" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2><strong>Anda belum mempunyai toko mods</strong></h2>
+                <button class="popup-close" onclick="closeStorePopup()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="popup-body">
+                <p>Apakah anda akan membuat toko?</p>
+            </div>
+            <div class="popup-actions">
+                <button class="popup-btn confirm-btn" onclick="createStore()">
+                    <i class="fas fa-check"></i>
+                    Iya
+                </button>
+                <button class="popup-btn cancel-btn" onclick="closeStorePopup()">
+                    <i class="fas fa-times"></i>
+                    Tidak
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email: support@warmod.com</a></li>
+                        <li><a href="#">WhatsApp: +62 812-3456-7890</a></li>
+                        <li><a href="#">Telegram: @warmod_support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Syarat & Ketentuan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat Layanan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Pertanyaan Umum</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Cara Install Addon</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>WARMOD</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 WARMOD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

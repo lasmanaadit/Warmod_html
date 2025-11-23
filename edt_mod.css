@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #111;
+  font-size: 13px; /* ukuran dasar lebih kecil */
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
+.avatar {
+  background: #ffb74d;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.info p {
+  font-size: 11px;
+  color: #777;
+}
+
+/* Menu Sidebar */
+.sidebar nav {
+  margin-top: 10px;
+}
+
+.sidebar nav a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 25px 0;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  color: #7b3fe4;
+  font-weight: 600;
+}
+
+.logout {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #d33;
+  font-weight: 500;
+  font-size: 12.5px;
+}
+
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 25px;
+}
+
+.main h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.upload-form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-form label {
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.upload-form input[type="text"],
+.upload-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 12.5px;
+  background: #fff;
+}
+
+/* File upload section */
+.upload-group {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8ff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+}
+
+.file-row input[type="file"] {
+  font-size: 11.5px;
+  background: #a586ff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Tombol upload */
+.btn-upload {
+  background: #a586ff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 30px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 15px;
+  align-self: flex-start;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 20; /* agar tidak ketutup */
+}
+
+.btn-upload:hover {
+  background: #8d6cff;
+}
+.file-row input[type="file"] {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-upload {
+  z-index: 9999;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  .upload-form {
+    width: 100%;
+  }
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FIX: tombol tidak bisa diklik */
+.upload-form {
+  position: relative;
+  z-index: 10;
+}
+
+.btn-upload {
+  position: relative !important;
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+.popup {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}

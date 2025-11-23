@@ -1,0 +1,101 @@
+/* Profile Styles */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile {
+    padding: 40px 0;
+    min-height: 80vh;
+    background: #f8f9fa;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: 700px 1fr;
+    gap: 30px;
+    
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10 20px;
+}
+
+.profile-main {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 40px;
+}
+
+.profile-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+
+/* CSS untuk Tombol Syarat & Ketentuan */
+.actions {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #f8f9fa;
+}
+
+.btn {
+    padding: 12px 40px;
+    border: 2px solid;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 6000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background: white;
+}
+
+.btn-outline {
+    background: transparent;
+}
+
+.btn-disagree-outline {
+    color: #000000;
+    border-color: #000000;
+}
+
+.btn-disagree-outline:hover {
+    background: #000000;
+    color: white;
+}
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Status disabled */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn:disabled:hover {
+    background: inherit;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #34495e;
+    color: #000000;
+    font-size: 14px;
+}

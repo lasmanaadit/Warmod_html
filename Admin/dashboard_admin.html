@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="dashboard_admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<script>
+// Cek login admin
+if(localStorage.getItem("isAdminLogin") !== "true"){
+    window.location.href = "admin_login.html";
+}
+</script>
+
+<script>
+// update profil di sidebar
+document.addEventListener("DOMContentLoaded", () => {
+  const nama = localStorage.getItem("adminNama") || "Admin";
+  const email = localStorage.getItem("adminEmail") || "admin@gmail.com";
+  const foto = localStorage.getItem("adminFoto");
+
+  document.querySelector(".info h4").textContent = nama;
+  document.querySelector(".info p").textContent = email;
+  document.querySelector(".avatar-img").src = foto || "default_pp.png";
+});
+</script>
+
+<body>
+  <div class="container">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar">
+      <div class="profile">
+      <div class="avatar">A</div>
+      <div class="info">
+        <h4>Admin</h4>
+        <p>admin@gmail.com</p>
+      </div>
+    </div>
+
+      <nav>
+        <a href="dashboard_admin.html" class="active">Dashboard</a>
+        <a href="permintaan_verifikasi.html">Permintaan Verifikasi</a>
+        <a href="kelola_user.html">Kelola User Toko</a>
+        <a href="riwayat_transaksi.html">Riwayat Transaksi</a>
+      </nav>
+
+      <div class="logout">
+        <a href="admin_login.html">Logout</a>
+      </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main">
+
+      <h1>Dashboard</h1>
+
+      <!-- CARD TOP -->
+      <div class="cards">
+        <div class="card">
+          <h4>Total Transaksi</h4>
+          <p class="value">Rp. 100.000</p>
+        </div>
+
+        <div class="card">
+          <h4>Menunggu Approval</h4>
+          <p class="value">3 Item</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:15px;">Permintaan Penarikan</h2>
+
+      <!-- TABEL PENARIKAN -->
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Nominal</th>
+              <th>Rekening Tujuan</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="withdraw-table">
+            <!-- data diisi lewat JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+<script>
+// DATA DEMO
+const dummy = [
+  {nama:"YellowFlash", nominal:"Rp 902.000", rek:"123456789123456"},
+  {nama:"Nanda Andika", nominal:"Rp 40.000", rek:"1234567890123"},
+  {nama:"Ghopur", nominal:"Rp 769.000", rek:"1234567890"},
+  {nama:"Reza Fahlevi", nominal:"Rp 276.000", rek:"123456789123456"},
+];
+
+const tbody = document.getElementById("withdraw-table");
+
+dummy.forEach((d, i) => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${i+1}</td>
+    <td>${d.nama}</td>
+    <td>${d.nominal}</td>
+    <td>${d.rek}</td>
+    <td class="actions">
+        <button class="approve-btn">Approve</button>
+        <button class="decline-btn">Decline</button>
+    </td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // === APPROVE ===
+    document.querySelectorAll(".approve-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const row = this.closest("tr");
+
+            if (confirm("Yakin ingin APPROVE permintaan ini?")) {
+                // setelah confirm, tombol approve & decline hilang
+                row.querySelector(".actions").innerHTML = 
+                    "<span style='color: #1a7f3c; font-weight:600;'>Approved ✓</span>";
+            }
+        });
+    });
+
+    // === DECLINE ===
+    document.querySelectorAll(".decline-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const row = this.closest("tr");
+
+            if (confirm("Tolak permintaan ini?")) {
+                row.querySelector(".actions").innerHTML = 
+                    "<span style='color: #b30000; font-weight:600;'>Declined ✗</span>";
+            }
+        });
+    });
+
+});
+</script>
+</body>
+</html>

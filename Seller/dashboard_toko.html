@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Toko</title>
+  <link rel="stylesheet" href="dashboard_toko.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const namaToko = localStorage.getItem("namaToko") || "Nama Toko";
+  const emailToko = localStorage.getItem("emailToko") || "email@gmail.com";
+  const fotoToko = localStorage.getItem("fotoToko");
+
+  // ambil elemen sidebar
+  const namaSidebar = document.querySelector(".info h4");
+  const emailSidebar = document.querySelector(".info p");
+  const avatarImg = document.querySelector(".avatar-img");
+
+  // update nama
+  if (namaSidebar) namaSidebar.textContent = namaToko;
+
+  // update email
+  if (emailSidebar) emailSidebar.textContent = emailToko;
+
+  // update foto profil
+  if (avatarImg) {
+    avatarImg.src = fotoToko ? fotoToko : "default_pp.png";
+  }
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("mod-list");
+    const data = JSON.parse(localStorage.getItem("mods")) || [];
+
+    if (data.length === 0) {
+        container.innerHTML = "<p style='color:gray'>Belum ada mods yang diupload.</p>";
+        return;
+    }
+
+    data.forEach((mod, index) => {
+        const item = document.createElement("div");
+        item.classList.add("item-card");
+
+        item.innerHTML = `
+            <img src="${mod.gambar || '/Img/default.jpg'}">
+            <div class="item-info">
+                <div class="item-title">${mod.nama}</div>
+                <div class="item-status">Published</div>
+            </div>
+            <div class="price">-</div>
+
+            <div class="actions">
+                <button onclick="editMod(${index})">✏️</button>
+                <button onclick="hapusMod(${index})">🗑️</button>
+            </div>
+        `;
+
+        container.appendChild(item);
+    });
+});
+
+// hapus mod
+function hapusMod(i) {
+    let data = JSON.parse(localStorage.getItem("mods"));
+    data.splice(i, 1);
+    localStorage.setItem("mods", JSON.stringify(data));
+    location.reload();
+}
+
+// edit mod (pindah ke halaman edit)
+function editMod(i) {
+    localStorage.setItem("editIndex", i);
+    window.location.href = "edit_mod.html";
+}
+</script>
+
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar">
+  <img class="avatar-img" src="" alt="Foto Profil">
+</div>
+
+        <div class="info">
+          <h4>Nama Toko</h4>
+          <p>toko@gmail.com</p>
+        </div>
+      </div>
+      <nav>
+        <a href="dashboard_toko.html" class="active"><i></i> Dashboard</a>
+        <a href="upload_mod.html"><i></i> Upload Mod</a>
+        <a href="profil_toko.html"><i></i> Profil Toko</a>
+      </nav>
+      <div class="logout">
+        <a href="#"><i></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h1>Dashboard</h1>
+
+      <div class="cards">
+        <div class="card">
+          <h4>Total Pendapatan</h4>
+          <p class="value">Rp. 100.000</p>
+        </div>
+        <div class="card">
+          <h4>Total Terjual</h4>
+          <p class="value">1 Item</p>
+        </div>
+      </div>
+
+     <div id="mod-list"></div>
+    </main>
+  </div>
+</body>
+<script>
+  // tombol hapus
+  const deleteButtons = document.querySelectorAll(".actions button:last-child");
+  deleteButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      const item = this.closest(".item");
+      item.remove();
+    });
+  });
+
+  // tombol edit
+  const editButtons = document.querySelectorAll(".actions button:first-child");
+  editButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      // Misal pindah ke halaman edit_mod.html
+      window.location.href = "edit_mod.html";
+    });
+  });
+</script>
+<script>
+  window.onload = () => {
+    const nameDisplay = document.querySelector(".user-name");
+    const profilePic = document.querySelector(".profile-pic");
+
+    const savedName = localStorage.getItem("userName");
+    const savedPic = localStorage.getItem("userPic");
+
+    if (savedName && nameDisplay) nameDisplay.textContent = savedName;
+    if (savedPic && profilePic) profilePic.src = savedPic;
+  };
+</script>
+
+</html>

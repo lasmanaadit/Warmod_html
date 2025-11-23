@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Mods</title>
+  <link rel="stylesheet" href="edt_mod.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ambil data dari localStorage
+const namaToko = localStorage.getItem("namaToko");
+const emailToko = localStorage.getItem("emailToko");
+const fotoToko = localStorage.getItem("fotoToko");
+
+// Update nama
+const namaElem = document.querySelector(".info h4");
+if (namaElem && namaToko) {
+  namaElem.textContent = namaToko;
+}
+
+// Update email
+const emailElem = document.querySelector(".info p");
+if (emailElem && emailToko) {
+  emailElem.textContent = emailToko;
+}
+
+// Update foto profil
+const avatarImg = document.querySelector(".avatar-img");
+if (avatarImg) {
+  avatarImg.src = fotoToko || "default_pp.png"; // bisa diganti defaultnya
+}
+
+});
+</script>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar">
+  <img class="avatar-img" src="" alt="Foto Profil">
+      </div>
+        <div class="info">
+          <h4>Nama Toko</h4>
+          <p>toko@gmail.com</p>
+        </div>
+      </div>
+      <nav>
+        <a href="dashboard_toko.html" class="active"><i></i> Dashboard</a>
+        <a href="upload_mod.html"><i></i> Upload Mod</a>
+        <a href="profil_toko.html"><i></i> Profil Toko</a>
+      </nav>
+      <div class="logout">
+        <a href="#"><i></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+  <h1>Edit Mods</h1>
+
+  <form class="upload-form">
+
+    <label>Nama Mods</label>
+    <input type="text" id="modNama" placeholder="Masukkan nama mod">
+
+    <label>Tautan File</label>
+    <input type="text" id="modLink" placeholder="Masukkan link file (Google Drive, Mediafire, dll)">
+
+    <label>Deskripsi</label>
+    <textarea id="modDesk" rows="5" placeholder="Tuliskan deskripsi mod kamu..."></textarea>
+
+    <div class="upload-group">
+      <div class="file-row">
+        <span>Edit Gambar</span>
+        <input type="file" id="modImg">
+      </div>
+    </div>
+
+    <!-- TOMBOL ADA DI DALAM FORM -->
+    <button type="submit" class="btn-upload">Simpan Perubahan</button>
+
+  </form>
+</main>
+
+  </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const form = document.querySelector(".upload-form");
+  const popup = document.getElementById("popup");
+  const btnOke = document.getElementById("btnOke");
+
+  if (btnOke) {
+    btnOke.addEventListener("click", () => {
+      popup.style.display = "none";
+      window.location.href = "dashboard_toko.html";
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nama = document.getElementById("modNama").value;
+    const link = document.getElementById("modLink").value;
+    const deskripsi = document.getElementById("modDesk").value;
+    const gambarInput = document.getElementById("modImg");
+
+    if (gambarInput.files && gambarInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        saveEditedMod(nama, link, deskripsi, ev.target.result);
+      };
+      reader.readAsDataURL(gambarInput.files[0]);
+
+    } else {
+      const oldData = JSON.parse(localStorage.getItem("editedMod")) || {};
+      saveEditedMod(nama, link, deskripsi, oldData.gambar);
+    }
+  });
+
+  function saveEditedMod(nama, link, deskripsi, gambar) {
+    const data = { nama, link, deskripsi, gambar };
+    localStorage.setItem("editedMod", JSON.stringify(data));
+    popup.style.display = "flex";
+  }
+
+});
+</script>
+
+<!-- POPUP -->
+<div class="popup" id="popup" style="display:none;">
+  <div class="popup-box">
+    <div class="icon">✔</div>
+    <h3>Perubahan Disimpan</h3>
+    <p>Mod berhasil diperbarui</p>
+    <button id="btnOke">Oke</button>
+  </div>
+</div>
+
+</body>
+</html>
